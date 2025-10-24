@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class DriverFactory {
 
-    private static ThreadLocal<AndroidDriver> driver = new ThreadLocal<>();
+    public static ThreadLocal<AndroidDriver> driver = new ThreadLocal<>();
     private static AppiumDriverLocalService serviceBuilder;
 
     public static void initDriver() throws MalformedURLException {

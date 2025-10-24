@@ -1,22 +1,19 @@
 package steps;
 import io.cucumber.java.en.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.BasePage;
 import pages.CartPage;
 import pages.SearchResultPage;
 
-public class CheckoutSteps {
+import java.time.Duration;
+
+import static base.DriverFactory.driver;
+
+public class CartSteps extends BasePage {
     SearchResultPage searchPage = new SearchResultPage();
     CartPage cartPage = new CartPage();
 
-    @Given("user on Search Result Product")
-    public void userOnSearchResultProduct() throws InterruptedException {
-        Thread.sleep(3000);
-
-    }
-
-    @And("Sauce Lab Back Packs")
-    public void selectProduct() {
-        searchPage.selectProduct("Sauce Lab Back Packs");
-    }
 
     @And("select gray color")
     public void selectGrayColor() {
@@ -37,11 +34,12 @@ public class CheckoutSteps {
     public void clickAddToCart() {
         searchPage.addToCart();
     }
-
-//    @And("click cart icon")
-//    public void clickCartIcon() {
-//        searchPage.openCart();
+//    @And("verify cart is updated")
+//    public void verifyCartIsUpdated() {
+//        searchPage.checkCart();
 //    }
+
+
 
 //    @And("verify color is {string}")
 //    public void verifyColor(String color) {
