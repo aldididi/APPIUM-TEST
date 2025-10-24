@@ -10,6 +10,7 @@ public class CheckoutSteps {
     @Given("user on Search Result Product")
     public void userOnSearchResultProduct() throws InterruptedException {
         Thread.sleep(3000);
+
     }
 
     @And("Sauce Lab Back Packs")
