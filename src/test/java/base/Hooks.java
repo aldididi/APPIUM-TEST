@@ -7,11 +7,11 @@ public class Hooks {
 
     @Before(order = 0)
     public void startAppium() throws Exception {
-        DriverFactory.initDriver();
+        DriverFactory2.initDriver();
     }
 
     @After(order = 0)
     public void stopAppium() {
-        DriverFactory.quitDriver();
+        DriverFactory2.quitDriver();
     }
 }

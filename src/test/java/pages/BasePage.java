@@ -1,6 +1,6 @@
 package pages;
 
-import base.DriverFactory;
+import base.DriverFactory2;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
@@ -14,7 +14,7 @@ public class BasePage {
     protected WebDriverWait wait;
 
     public BasePage() {
-        this.driver = DriverFactory.getDriver();
+        this.driver = DriverFactory2.getDriver();
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
