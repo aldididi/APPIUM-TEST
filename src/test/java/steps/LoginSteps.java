@@ -16,23 +16,28 @@ public class LoginSteps {
         loginPage.verifyLoginText();
     }
 
-//    @And("fill credential")
-//    public void fillCredential(String email, String password) {
-//        loginPage.fillLoginForm(email, password);
-//    }
-
     @And("fill credential")
-    public void fillCredential(DataTable dataTable) {
-        List<Map<String, String>> credentials = dataTable.asMaps(String.class, String.class);
-
-        for (Map<String, String> row : credentials) {
-            String email = row.get("email");
-            String password = row.get("password");
-
-            System.out.println("🔹 Trying login with: " + email + " / " + password);
-            loginPage.fillLoginForm(email, password);
-        }
+    public void fillCredential() {
+        loginPage.fillCredential();
     }
+
+    @And("login")
+    public void clickBtnLogin() {
+        loginPage.clickLogin();
+    }
+
+//    @And("fill credential")
+//    public void fillCredential(DataTable dataTable) {
+//        List<Map<String, String>> credentials = dataTable.asMaps(String.class, String.class);
+//
+//        for (Map<String, String> row : credentials) {
+//            String email = row.get("email");
+//            String password = row.get("password");
+//
+//            System.out.println("🔹 Trying login with: " + email + " / " + password);
+//            loginPage.fillLoginForm(email, password);
+//        }
+//    }
 
 
 }

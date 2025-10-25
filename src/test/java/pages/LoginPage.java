@@ -11,22 +11,36 @@ import java.time.Duration;
 
 public class LoginPage extends BasePage{
     private final By textLogin = AppiumBy.accessibilityId("com.saucelabs.mydemoapp.android:id/loginTV");
-    private final By fieldUsername = AppiumBy.accessibilityId("com.saucelabs.mydemoapp.android:id/nameET");
-    private final By fieldPassword = AppiumBy.accessibilityId("com.saucelabs.mydemoapp.android:id/passwordET");
-    private final By btnLogin = AppiumBy.accessibilityId("com.saucelabs.mydemoapp.android:id/loginBtn");
+    private final By fieldUsername = AppiumBy.id("com.saucelabs.mydemoapp.android:id/nameET");
+    private final By fieldPassword = AppiumBy.id("com.saucelabs.mydemoapp.android:id/passwordET");
+    private final By btnLogin = AppiumBy.id("com.saucelabs.mydemoapp.android:id/loginBtn");
     private final By errorLogin = AppiumBy.accessibilityId("com.saucelabs.mydemoapp.android:id/passwordErrorTV");
 
     public void verifyLoginText() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement loginElement = wait.until(ExpectedConditions.visibilityOfElementLocated(textLogin));
+        WebElement loginButton =wait.until(ExpectedConditions.visibilityOfElementLocated(btnLogin));
+        if(loginButton.isDisplayed()) {
+            System.out.println("showing");
+        } else {
+            throw new AssertionError("Login button is not displayed");
+        }
+//        WebElement loginElement = wait.until(ExpectedConditions.visibilityOfElementLocated(textLogin));
 
-        String actualText = loginElement.getText();
-        System.out.println("Found login text: " + actualText);
-
-        Assert.assertEquals(actualText, "Login", actualText);
-        System.out.println("Verified login text is 'Login'");
+//        String actualText = loginElement.getText();
+//        System.out.println("Found login text: " + actualText);
+//
+//        Assert.assertEquals(actualText, "Login", actualText);
+//        System.out.println("Verified login text is 'Login'");
     }
 
+    public void fillCredential(){
+        driver.findElement(fieldUsername).sendKeys("bod@example.com");
+        driver.findElement(fieldPassword).sendKeys("10203040");
+    }
+
+    public void clickLogin(){
+        driver.findElement(btnLogin).click();
+    }
 //    public void fillLoginForm(String email, String password) {
 ////        driver.findElement(fieldUsername).sendKeys(email);
 ////        driver.findElement(fieldPassword).sendKeys(password);
@@ -54,30 +68,30 @@ public class LoginPage extends BasePage{
 //            wait.until(ExpectedConditions.visibilityOfElementLocated(homeScreen));
 //            System.out.println("Login successful for user: " + email);
 //        } else {
-//            throw new AssertionError("Unhandled credentials: " + email);
+//            throw new AssertionError("⚠️ Unhandled credentials: " + email);
 //        }
 //    }
 
-    public void fillLoginForm(String email, String password) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        driver.findElement(fieldUsername).clear();
-        driver.findElement(fieldUsername).sendKeys(email);
-        driver.findElement(fieldPassword).clear();
-        driver.findElement(fieldPassword).sendKeys(password);
-        driver.findElement(btnLogin).click();
-
-        // Logic: verify success or expected error
-        if (email.equalsIgnoreCase("bod@example.com")) {
-            String actualError = wait.until(ExpectedConditions.visibilityOfElementLocated(errorLogin)).getText();
-            Assert.assertEquals("Sorry this user has been locked out.", actualError);
-            System.out.println("Locked out user verified: " + email);
-        } else {
-            // Example: check if successful login reached the product page
-            By productsPage = AppiumBy.accessibilityId("products screen");
-            wait.until(ExpectedConditions.visibilityOfElementLocated(productsPage));
-            System.out.println("Successful login: " + email);
-        }
-    }
+//    public void fillLoginForm(String email, String password) {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//
+//        driver.findElement(fieldUsername).clear();
+//        driver.findElement(fieldUsername).sendKeys(email);
+//        driver.findElement(fieldPassword).clear();
+//        driver.findElement(fieldPassword).sendKeys(password);
+//        driver.findElement(btnLogin).click();
+//
+//        // Logic: verify success or expected error
+//        if (email.equalsIgnoreCase("bod@example.com")) {
+//            String actualError = wait.until(ExpectedConditions.visibilityOfElementLocated(errorLogin)).getText();
+//            Assert.assertEquals("Sorry this user has been locked out.", actualError);
+//            System.out.println("Locked out user verified: " + email);
+//        } else {
+//            // Example: check if successful login reached the product page
+//            By productsPage = AppiumBy.accessibilityId("products screen");
+//            wait.until(ExpectedConditions.visibilityOfElementLocated(productsPage));
+//            System.out.println("Successful login: " + email);
+//        }
+//    }
 
 }

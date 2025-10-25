@@ -15,40 +15,34 @@ public class CartSteps extends BasePage {
     CartPage cartPage = new CartPage();
 
 
-    @And("select gray color")
-    public void selectGrayColor() {
-        searchPage.selectGrayColor();
-    }
-
-    @And("scroll little bit")
-    public void scrollLittleBit() {
-       searchPage.scrollDown();
-    }
 
     @And("set quantity to 3")
     public void setQuantity() {
         searchPage.increaseQty();
     }
 
-    @And("click add to cart")
-    public void clickAddToCart() {
-        searchPage.addToCart();
+
+    @And("go to checkout page")
+    public void goToCheckoutPage() {
+        cartPage.verifyOnCart();
     }
-//    @And("verify cart is updated")
-//    public void verifyCartIsUpdated() {
-//        searchPage.checkCart();
-//    }
 
+    @And("check product")
+    public void checkColor() {
+        cartPage.verifyProductName("Sauce Lab Back Packs");
+    }
 
+    @And("click checkout")
+    public void checkOut() {
+        cartPage.setProceedCheckout();
+    }
 
-//    @And("verify color is {string}")
-//    public void verifyColor(String color) {
-//        cartPage.verifyColor(color);
-//    }
+    }
+
 
 
 //    @And("verify product name Sauce Lab Back Packs")
 //    public void verifyProductName(String name) {
 //        cartPage.verifyProductName(name);
 //    }
-}
+

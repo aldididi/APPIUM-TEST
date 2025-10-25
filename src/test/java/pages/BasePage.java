@@ -14,7 +14,7 @@ public class BasePage {
     protected WebDriverWait wait;
 
     public BasePage() {
-        this.driver = DriverFactory.getDriver(); // ✅ pulls the driver from factory
+        this.driver = DriverFactory.getDriver();
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
