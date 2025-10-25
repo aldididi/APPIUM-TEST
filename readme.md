@@ -4,6 +4,7 @@ This project automates Android MY DEMO APP. With java, cucumber, testng
 
 ---
 Screen recording: https://drive.google.com/file/d/12aTIiAkat9QCVh1KHxKaLRklVh1aktA_/view?usp=sharing
+Exploratory test : https://docs.google.com/spreadsheets/d/1pMQmzqgdnr77Pv7NMxLBnLwcku-s9LRXZhLIxYlwpiU/edit?usp=sharing
 
 ## Prerequisites
 
