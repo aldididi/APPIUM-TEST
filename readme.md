@@ -1,9 +1,9 @@
 # Android Automation Project
 
-This project automates Android MY DEMOE APP. With java, cucumber, testng
+This project automates Android MY DEMO APP. With java, cucumber, testng
 
 ---
-
+Screen recording: https://drive.google.com/file/d/12aTIiAkat9QCVh1KHxKaLRklVh1aktA_/view?usp=sharing
 
 ## Prerequisites
 

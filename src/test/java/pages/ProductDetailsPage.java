@@ -43,7 +43,7 @@ public void addToCart() {
 
     public void shortWait() {
         try {
-            Thread.sleep(3000); // 1 sec pause for UI update
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -51,8 +51,7 @@ public void addToCart() {
     public void cartIcon() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         WebElement element;
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(cartIcon));
+
         try {
             element = wait.until(ExpectedConditions.presenceOfElementLocated(cartIcon));
         } catch (Exception e) {
@@ -63,7 +62,7 @@ public void addToCart() {
             element.click();
         } catch (Exception e) {
             // fallback to real tap gesture
-            System.out.println("⚠️ Normal click failed, retrying with mobile: clickGesture...");
+            System.out.println("Normal click failed, retrying with mobile: clickGesture...");
             ((JavascriptExecutor) driver).executeScript("mobile: clickGesture", Map.of(
                     "elementId", ((RemoteWebElement) element).getId()
             ));
@@ -74,7 +73,7 @@ public void addToCart() {
                     ExpectedConditions.presenceOfElementLocated(AppiumBy.accessibilityId("Cart"))
             ));
         } catch (Exception e) {
-            System.out.println("⚠️ No new screen detected yet — might still be on same view.");
+            System.out.println("No new screen detected yet — might still be on same view.");
         }
 
     }

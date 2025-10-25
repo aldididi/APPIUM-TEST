@@ -18,10 +18,6 @@ public class SearchResultPage extends BasePage {
     private final By qty = AppiumBy.id("com.saucelabs.mydemoapp.android:id/plusIV");
     private final By cartBadge = AppiumBy.id("com.saucelabs.mydemoapp.android:id/cartTV");
 
-//    public SearchResultPage(AndroidDriver driver) {
-//        super(driver);
-//    }
-
 
     public void hamburgerBtnClick() {
         click(hamburgerBtn);

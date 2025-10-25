@@ -3,7 +3,6 @@ import io.cucumber.java.en.*;
 import pages.SearchResultPage;
 
 public class SearchResultSteps {
-    //pages.SearchResultPage searchPage = new pages.SearchResultPage();
     SearchResultPage searchPage = new SearchResultPage();
     @Given("user on Search Result Product")
     public void userOnSearchResultProduct() throws InterruptedException {
