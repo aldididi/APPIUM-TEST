@@ -16,7 +16,7 @@ public class DriverFactory {
 
     public static void initDriver() throws MalformedURLException {
         if (driver.get() != null) return;
-        System.out.println("=== [DriverFactory] Starting Appium Service ===");
+        System.out.println("[DriverFactory] Starting Appium Service");
 
         serviceBuilder = new AppiumServiceBuilder()
                 .withAppiumJS(new File("/Users/aldymochamadheryana/.nvm/versions/node/v20.19.5/lib/node_modules/appium/build/lib/main.js"))
@@ -34,7 +34,7 @@ public class DriverFactory {
 
         driver.set(new AndroidDriver(new URL("http://127.0.0.1:4723/"), options));
 
-        System.out.println("=== [DriverFactory] Appium Started and App Launched ===");
+        System.out.println("[DriverFactory] Appium Started and App Launched ");
     }
 
     public static AndroidDriver getDriver() {
@@ -42,7 +42,7 @@ public class DriverFactory {
     }
 
     public static void quitDriver() {
-        System.out.println("=== [DriverFactory] Stopping Appium Service ===");
+        System.out.println("[DriverFactory] Stopping Appium Service");
         if (driver.get() != null) {
             driver.get().quit();
             driver.remove();
